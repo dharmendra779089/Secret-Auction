@@ -1,0 +1,25 @@
+bids = {}
+
+continue_bids = True
+while continue_bids:
+    name = input("Enter your name: ")
+    bid = int(input("Enter your bid amount: "))
+    bids[name] = bid
+    new_bidder = input("Are there more bidders? Type 'yes' or 'no': ").lower()
+    if new_bidder == "no":
+        continue_bids = False
+    elif new_bidder == "yes":
+        print("\n"*100)
+
+def max_bidder(bid_dict):
+    max_bid = 0
+    winner = ""
+    for bidder in bid_dict:
+        bid_amt = bid_dict[bidder]
+        if bid_amt > max_bid:
+            max_bid = bid_amt
+            winner = bidder
+    print(f"\nThe winner is {winner} with a bid of {max_bid} amount")
+
+# Call the function
+max_bidder(bids)
